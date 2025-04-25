@@ -1,0 +1,56 @@
+.review-container {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.review-item {
+    border-bottom: 1px solid #444;
+    padding: 15px 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+
+.review-author {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.review-content {
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toggle-button:hover {
+    text-decoration: underline;
+}
+
+.review-message {
+    margin-top: 5rem;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    color: #ccc;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .review-message {
+        margin-top: 0;
+    }
+}

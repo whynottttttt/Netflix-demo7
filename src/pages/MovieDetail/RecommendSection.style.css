@@ -1,0 +1,26 @@
+.recommend-section {
+    margin-top: 20px;
+}
+
+.recommend-card {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+
+.recommend-card:hover {
+    transform: scale(1.03);
+}
+
+.recommend-title {
+    font-size: 18px;
+    margin-top: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recommend-poster {
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+}

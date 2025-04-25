@@ -1,0 +1,60 @@
+.movie-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.poster-area {
+    flex: 1;
+    min-width: 300px;
+}
+
+.movie-poster {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info-area {
+    flex: 2;
+    min-width: 300px;
+}
+
+.genres {
+    margin-bottom: 1rem;
+}
+
+.overview {
+    max-height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin-bottom: 1rem;
+}
+
+.detail-info p {
+    margin: 0.2rem 0;
+}
+
+.movie-tab-buttons {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.movie-tab-content {
+    padding-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .movie-detail-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-area {
+        text-align: center;
+    }
+}

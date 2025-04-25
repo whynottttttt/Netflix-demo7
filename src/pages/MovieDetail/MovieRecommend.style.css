@@ -1,0 +1,25 @@
+.recommend-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.recommend-section {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.recommend-message {
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 464px) {
+    .movie-card {
+        min-height: 360px;
+        background-size: cover !important;
+    }
+}
