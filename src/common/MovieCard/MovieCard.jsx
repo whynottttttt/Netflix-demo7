@@ -16,12 +16,17 @@ const MovieCard = ({ movie }) => {
         if (!genreData) return []
         const genreNameList = genreIdList.map((id) => {
             const genreObj = genreData.find((genre) => genre.id === id)
-            return genreObj.name;
+            return genreObj && genreObj.name;
         })
-        return genreNameList
+        return genreNameList.filter(Boolean)
     }
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        // 터치 이벤트 문제 해결을 위해 이벤트 전파 중지
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         navigate(`/movies/${movie.id}`)
     }
 
@@ -35,11 +40,10 @@ const MovieCard = ({ movie }) => {
             }}
             className="movie-card"
         >
-
-            <div className="overlay">
+            <div className="overlay" onClick={(e) => e.stopPropagation()}>
                 <h1>{movie.title}</h1>
-                {showGenre(movie.genre_ids).map((id) => (
-                    <Badge bg="danger">{id}</Badge>
+                {showGenre(movie.genre_ids).map((id, index) => (
+                    <Badge key={index} bg="danger">{id}</Badge>
                 ))}
                 <div className="movie-info">
                     <div>

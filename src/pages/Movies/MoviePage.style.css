@@ -29,3 +29,61 @@
     font-size: 1rem;
     margin-bottom: 0;
 }
+
+.genre-filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    gap: 0.5rem;
+    /* 기본 간격 */
+}
+
+.genre-filter-wrapper button {
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    font-size: 0.75rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .genre-filter-wrapper {
+        justify-content: flex-start;
+        gap: 1rem;
+        /* 테블릿에서 버튼 간격을 더 넓게 설정 */
+    }
+}
+
+@media screen and (max-width: 464px) {
+    .genre-filter-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .genre-filter-wrapper button {
+        margin-bottom: 0.5rem;
+        width: auto;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .d-none.d-md-block {
+        display: none;
+    }
+
+    .d-block.d-md-none {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .genre-filter-wrapper {
+        gap: 1.5rem;
+        /* 데스크탑에서 버튼 간격을 더 넓게 설정 */
+    }
+
+    .genre-filter-wrapper button {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+}

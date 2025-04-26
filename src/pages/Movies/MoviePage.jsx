@@ -99,8 +99,59 @@ const MoviePage = () => {
 
   return (
     <Container>
+      {/* 모바일 필터 영역 - 상단에 배치 */}
+      <div className="d-block d-md-none mb-4" style={{ position: 'relative', zIndex: 1000 }}>
+        <Row>
+          <Col xs={12} className="mb-3">
+            <h5>정렬</h5>
+            <Dropdown onSelect={(eventKey) => setSortOrder(eventKey)}>
+              <Dropdown.Toggle
+                variant="danger"
+                id="dropdown-basic-mobile"
+                style={{ cursor: "pointer", width: "100%" }}
+              >
+                {sortOrder === "desc" ? "인기순 높은순" : "인기순 낮은순"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ width: "100%" }}>
+                <Dropdown.Item eventKey="desc">인기순 높은순</Dropdown.Item>
+                <Dropdown.Item eventKey="asc">인기순 낮은순</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          <Col xs={12}>
+            <h5>장르</h5>
+            <Dropdown onSelect={(eventKey) => setSelectedGenre(eventKey === "null" ? null : Number(eventKey))}>
+              <Dropdown.Toggle
+                variant="danger"
+                id="dropdown-genre-mobile"
+                style={{ cursor: "pointer", width: "100%" }}
+              >
+                {selectedGenre
+                  ? genreList?.find((genre) => genre.id === selectedGenre)?.name
+                  : "장르 선택"}
+              </Dropdown.Toggle>
+              <Dropdown.Menu style={{ maxHeight: "300px", width: "100%" }}>
+                <Dropdown.Item eventKey="null" active={selectedGenre === null}>
+                  전체 장르
+                </Dropdown.Item>
+                {genreList?.map((genre) => (
+                  <Dropdown.Item
+                    key={genre.id}
+                    eventKey={genre.id}
+                    active={selectedGenre === genre.id}
+                  >
+                    {genre.name}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        </Row>
+      </div>
+
       <Row>
-        <Col lg={4} xs={12}>
+        {/* 데스크톱 필터 영역 */}
+        <Col lg={4} xs={12} className="d-none d-md-block">
           <h5>정렬</h5>
           <Dropdown onSelect={(eventKey) => setSortOrder(eventKey)}>
             <Dropdown.Toggle
@@ -144,12 +195,13 @@ const MoviePage = () => {
           </Dropdown>
         </Col>
 
+        {/* 영화 목록 영역 */}
         <Col lg={8} xs={12}>
           {sortedMovies.length === 0 && noResultsMessage}
 
-          <Row className="g-4 mb-4">
+          <Row className="g-3">
             {sortedMovies.map((movie, index) => (
-              <Col key={index} lg={4} xs={6}>
+              <Col key={movie.id || index} lg={4} md={6} xs={6} className="mb-3">
                 <MovieCard movie={movie} />
               </Col>
             ))}
